@@ -7,13 +7,6 @@
     "precio": 450
   },
   {
-    "numeroCodigo": 102,
-    "nivelMinimo": 5,
-    "nivelActual": 15,
-    "proveedor": "Intel",
-    "precio": 520
-  },
-  {
     "numeroCodigo": 103,
     "nivelMinimo": 8,
     "nivelActual": 15,
@@ -142,21 +135,7 @@
   {
     "numeroCodigo": 102,
     "nivelMinimo": 5,
-    "nivelActual": 13,
-    "proveedor": "Intel",
-    "precio": 520
-  },
-  {
-    "numeroCodigo": 102,
-    "nivelMinimo": 5,
-    "nivelActual": 14,
-    "proveedor": "Intel",
-    "precio": 520
-  },
-  {
-    "numeroCodigo": 102,
-    "nivelMinimo": 5,
-    "nivelActual": 15,
+    "nivelActual": 19,
     "proveedor": "Intel",
     "precio": 520
   }

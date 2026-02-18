@@ -167,7 +167,9 @@ function generarPedido(numeroCodigo) {
     
     if (prod) {
         const nuevoArchivo = [...archivoParseado]
-        console.log(nuevoArchivo)
+        const indice = nuevoArchivo.indexOf(prod)
+        
+        nuevoArchivo.splice(indice, 1)
         prod.nivelActual++
 
         nuevoArchivo.push(prod)
