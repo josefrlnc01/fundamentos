@@ -1,0 +1,163 @@
+[
+  {
+    "numeroCodigo": 101,
+    "nivelMinimo": 10,
+    "nivelActual": 25,
+    "proveedor": "AMD",
+    "precio": 450
+  },
+  {
+    "numeroCodigo": 102,
+    "nivelMinimo": 5,
+    "nivelActual": 15,
+    "proveedor": "Intel",
+    "precio": 520
+  },
+  {
+    "numeroCodigo": 103,
+    "nivelMinimo": 8,
+    "nivelActual": 15,
+    "proveedor": "Nvidia",
+    "precio": 890
+  },
+  {
+    "numeroCodigo": 104,
+    "nivelMinimo": 15,
+    "nivelActual": 30,
+    "proveedor": "Corsair",
+    "precio": 120
+  },
+  {
+    "numeroCodigo": 105,
+    "nivelMinimo": 12,
+    "nivelActual": 8,
+    "proveedor": "Kingston",
+    "precio": 85
+  },
+  {
+    "numeroCodigo": 106,
+    "nivelMinimo": 20,
+    "nivelActual": 45,
+    "proveedor": "Samsung",
+    "precio": 220
+  },
+  {
+    "numeroCodigo": 107,
+    "nivelMinimo": 6,
+    "nivelActual": 18,
+    "proveedor": "LG",
+    "precio": 340
+  },
+  {
+    "numeroCodigo": 108,
+    "nivelMinimo": 10,
+    "nivelActual": 22,
+    "proveedor": "ASUS",
+    "precio": 670
+  },
+  {
+    "numeroCodigo": 109,
+    "nivelMinimo": 8,
+    "nivelActual": 5,
+    "proveedor": "MSI",
+    "precio": 580
+  },
+  {
+    "numeroCodigo": 110,
+    "nivelMinimo": 25,
+    "nivelActual": 50,
+    "proveedor": "Gigabyte",
+    "precio": 410
+  },
+  {
+    "numeroCodigo": 111,
+    "nivelMinimo": 5,
+    "nivelActual": 9,
+    "proveedor": "AMD",
+    "precio": 95
+  },
+  {
+    "numeroCodigo": 112,
+    "nivelMinimo": 18,
+    "nivelActual": 35,
+    "proveedor": "Intel",
+    "precio": 780
+  },
+  {
+    "numeroCodigo": 113,
+    "nivelMinimo": 7,
+    "nivelActual": 14,
+    "proveedor": "Nvidia",
+    "precio": 1200
+  },
+  {
+    "numeroCodigo": 114,
+    "nivelMinimo": 10,
+    "nivelActual": 6,
+    "proveedor": "Corsair",
+    "precio": 65
+  },
+  {
+    "numeroCodigo": 115,
+    "nivelMinimo": 15,
+    "nivelActual": 28,
+    "proveedor": "Kingston",
+    "precio": 110
+  },
+  {
+    "numeroCodigo": 116,
+    "nivelMinimo": 12,
+    "nivelActual": 20,
+    "proveedor": "Samsung",
+    "precio": 380
+  },
+  {
+    "numeroCodigo": 117,
+    "nivelMinimo": 9,
+    "nivelActual": 4,
+    "proveedor": "LG",
+    "precio": 290
+  },
+  {
+    "numeroCodigo": 118,
+    "nivelMinimo": 20,
+    "nivelActual": 42,
+    "proveedor": "ASUS",
+    "precio": 550
+  },
+  {
+    "numeroCodigo": 119,
+    "nivelMinimo": 8,
+    "nivelActual": 16,
+    "proveedor": "MSI",
+    "precio": 720
+  },
+  {
+    "numeroCodigo": 120,
+    "nivelMinimo": 30,
+    "nivelActual": 60,
+    "proveedor": "Gigabyte",
+    "precio": 310
+  },
+  {
+    "numeroCodigo": 102,
+    "nivelMinimo": 5,
+    "nivelActual": 13,
+    "proveedor": "Intel",
+    "precio": 520
+  },
+  {
+    "numeroCodigo": 102,
+    "nivelMinimo": 5,
+    "nivelActual": 14,
+    "proveedor": "Intel",
+    "precio": 520
+  },
+  {
+    "numeroCodigo": 102,
+    "nivelMinimo": 5,
+    "nivelActual": 15,
+    "proveedor": "Intel",
+    "precio": 520
+  }
+]
