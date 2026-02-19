@@ -1,0 +1,17 @@
+[
+  {
+    "nombre": "raul",
+    "edad": 24,
+    "profesion": "backend"
+  },
+  {
+    "nombre": "carlos",
+    "edad": 24,
+    "profesion": "frontend"
+  },
+  {
+    "nombre": "marta",
+    "edad": 24,
+    "profesion": "devops"
+  }
+]
