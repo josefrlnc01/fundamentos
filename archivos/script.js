@@ -1,4 +1,5 @@
 import fs from "node:fs"
+import fsAsync from "node:fs/promises"
 import path from "node:path"
 import { personas } from "./DIRECTORIO.js"
 import { json } from "node:stream/consumers"
@@ -168,10 +169,8 @@ function generarPedido(numeroCodigo) {
     if (prod) {
         const nuevoArchivo = [...archivoParseado]
         const indice = nuevoArchivo.indexOf(prod)
-        
         nuevoArchivo.splice(indice, 1)
         prod.nivelActual++
-
         nuevoArchivo.push(prod)
         fs.writeFileSync(filePath, JSON.stringify(nuevoArchivo, null, 2))
         console.log("Compra realizada correctamente", prod)
@@ -193,8 +192,89 @@ function reporteFinal(nombreArchivo, numeroCodigo) {
 }
 
 
-reporteFinal("stock.json", 102)
-    
+
+async function generarArchivoAlumnos (nombre, numeroIdentificacion, notas) {
+    let alumnos = []
+    const ruta = path.join(process.cwd(), "alumnos.json")
+
+    try {
+        //Comprobamos si existe el archivo y convertimos el contenido en un array
+        const contenido = await fsAsync.readFile(ruta, {encoding: "utf-8"})
+        alumnos = contenido.trim() ? JSON.parse(contenido) : []
+    } catch (error) {
+        //Si no existe el archivo lo creamos vacío
+        if (error.code === 'ENOENT') {
+            await fsAsync.writeFile(ruta, JSON.stringify([]))
+        } else {
+            throw error
+        }
+    }
+
+    if (alumnos.some(al => al.numeroIdentificacion === numeroIdentificacion)) {
+        throw new Error("Alumno ya registrado")
+    }
+    //Añadimos los valores al registro
+    alumnos.push({nombre, numeroIdentificacion, notas})
+
+    //Convertimos el array a string para pasarlo al archivo
+    await fsAsync.writeFile(ruta, JSON.stringify(alumnos, null, 2))
+}
+
+
+
+
+
+async function obtenerArchivoAlumnos () {
+    const ruta = path.join(process.cwd(), "alumnos.json")
+    let alumnos = []
+    try {
+        const contenido = await fsAsync.readFile(ruta, {encoding: "utf-8"})
+        alumnos = contenido.trim() ? JSON.parse(contenido) : []
+    } catch (error) {
+        alumnos = []
+    }
+
+    return alumnos
+}
+
+
+
+async function procesarRegistrosAlumnos () {
+    const alumnos = await obtenerArchivoAlumnos()
+    let notaMasAlta = 0
+    let numeroIdentificaciónAlumnoNotaMasAlta = 0
+    let notaMediaCurso = 0
+    const notasMediasAlumnos = []
+
+
+    for (let alumno of alumnos) {
+        let totalAlumno = 0
+        let notaMediaAlumno = 0
+        let mediaAlumno = 0
+        for (let i = 0; i < alumno.notas.length; i++) {
+            if (notaMasAlta < alumno.notas[i]) {
+                notaMasAlta = alumno.notas[i]
+                numeroIdentificaciónAlumnoNotaMasAlta = alumno.numeroIdentificacion
+            }
+            notaMediaAlumno += alumno.notas[i]
+            totalAlumno += alumno.notas[i]
+        }
+        notaMediaCurso += totalAlumno
+        mediaAlumno = notaMediaAlumno / alumno.notas.length
+        notasMediasAlumnos.push(mediaAlumno)
+    }
+    const mediaCurso = notasMediasAlumnos.reduce((curr, acc) => curr + acc, 0) / notasMediasAlumnos.length
+
+    return {
+        notaMasAlta,
+        numeroIdentificaciónAlumnoNotaMasAlta,
+        mediaCurso
+    }
+}
+
+console.log( await procesarRegistrosAlumnos())
+
+
 
 
 
