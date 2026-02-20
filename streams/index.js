@@ -3,7 +3,9 @@ import { copyFile } from "fs/promises";
 import path, { dirname } from "path";
 import {createInterface} from "readline"
 import { fileURLToPath } from "url";
-import fs from "node:fs/promises"
+import fs, { appendFile } from "node:fs/promises"
+import { readFile, writeFile } from "node:fs/promises";
+import { on } from "node:events";
 
 //para archivos bastante grandes, > 100MB
 async function leerLineaPorLinea () {
@@ -77,6 +79,8 @@ async function escribirConStream () {
     flujoEscritura.on("error", (err) => {
         console.error(err)
     })
+
+
 }
 
 
@@ -93,4 +97,53 @@ async function copiarArchivo() {
     }
 }
 
-copiarArchivo()
+
+
+
+async function escribirArchivoSecuencial (titulo, autor, editorial, añoEdicion, isbn, numeroDePaginas) {
+    let archivo = []
+
+    try {
+        const contenido = await readFile("biblioteca.json", {encoding: "utf-8"})
+        archivo = JSON.parse(contenido)
+    } catch {
+        await writeFile("biblioteca.json", JSON.stringify([]))
+    }
+
+    const campos = {
+        titulo,
+        autor,
+        editorial,
+        añoEdicion,
+        isbn,
+        numeroDePaginas
+    }
+
+    archivo.push(campos)
+
+    await writeFile("biblioteca.json", JSON.stringify(archivo, null, 2))
+
+    console.log("escritura secuencial terminada")
+}
+await escribirArchivoSecuencial("Fundamentos", "David", "Sant", 2000, "none", 400)
+await escribirArchivoSecuencial("Fundament", "Davi", "San", 200, "non", 40)
+await escribirArchivoSecuencial("Fundamentos", "David", "Sant", 2000, "none", 400)
+await escribirArchivoSecuencial("Fundamentos", "David", "Sant", 2000, "none", 400)
+
+function modificarArchivoSecuencial () {
+    const flujoLectura = createReadStream("biblioteca.json", { encoding: "utf-8"})
+    flujoLectura.on("data", (chunk) => {
+        console.log(chunk)
+    })
+
+    flujoLectura.on("end", () => {
+        console.log("Lectura cerrada")
+    } )
+
+    flujoLectura.on("error", (err) => {
+        console.error(err)
+    })
+
+
+}
+

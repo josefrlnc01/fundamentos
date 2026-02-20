@@ -1,0 +1,34 @@
+[
+  {
+    "titulo": "Fundamentos",
+    "autor": "David",
+    "editorial": "Sant",
+    "añoEdicion": 2000,
+    "isbn": "none",
+    "numeroDePaginas": 400
+  },
+  {
+    "titulo": "Fundament",
+    "autor": "Davi",
+    "editorial": "San",
+    "añoEdicion": 200,
+    "isbn": "non",
+    "numeroDePaginas": 40
+  },
+  {
+    "titulo": "Fundamentos",
+    "autor": "David",
+    "editorial": "Sant",
+    "añoEdicion": 2000,
+    "isbn": "none",
+    "numeroDePaginas": 400
+  },
+  {
+    "titulo": "Fundamentos",
+    "autor": "David",
+    "editorial": "Sant",
+    "añoEdicion": 2000,
+    "isbn": "none",
+    "numeroDePaginas": 400
+  }
+]
