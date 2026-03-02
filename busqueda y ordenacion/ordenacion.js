@@ -1,4 +1,4 @@
-const vector = [98,45,23,21,2,35,67,34]
+
 
 
 function bubbleSort () {
@@ -216,4 +216,59 @@ function quickSort (numbers, left = 0, right = numbers.length - 1) {
     quickSort(numbers, left, pivotIndex - 1)
     quickSort(numbers, pivotIndex + 1, right)
 }
-quickSort(numbers)
+
+const arr = [23,1,22,7]
+
+function linearSearch (num) {
+    for (let i = 0; i < arr.length; i++) {
+        if (num === arr[i]) {
+            return i
+        }
+    }
+
+    return -1
+}
+
+
+const vector = [98,45,23,21,2,35,67,34]
+
+function binarySearch (arr, num) {
+    let left = 0
+    let right = arr.length - 1
+    let mid = Math.floor((left + right) / 2)
+
+    while (left <= right) {
+        if (arr[mid] > num) {
+            right = mid - 1
+        } else if (arr[mid] < num) {
+            left = mid + 1
+        } else {
+            return mid
+        }
+
+        mid = Math.floor((left + right) / 2)
+    }
+
+    return -1
+}
+
+console.log(binarySearch(vector, 34))
+
+const vector2 = [2,1,6,3]
+function iSort (arr) {
+    for (let i = 1; i < arr.length; i++) {
+        let current = arr[i]
+        let j = i - 1
+        while (j >= 0 && arr[j] > current ) {
+            arr[j + 1] = arr[j]
+            j--
+        }
+        
+        arr[j + 1] = current
+    }
+    console.log(arr)
+
+}
+
+iSort(vector2)
+
