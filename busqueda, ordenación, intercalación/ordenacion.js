@@ -230,7 +230,7 @@ function linearSearch (num) {
 }
 
 
-const vector = [98,45,23,21,2,35,67,34]
+
 
 function binarySearch (arr, num) {
     let left = 0
@@ -252,23 +252,53 @@ function binarySearch (arr, num) {
     return -1
 }
 
-console.log(binarySearch(vector, 34))
 
-const vector2 = [2,1,6,3]
-function iSort (arr) {
-    for (let i = 1; i < arr.length; i++) {
-        let current = arr[i]
+const vector = [98,45,23,21,2,35,67,34]
+const ordenado = [1, 2, 3, 4, 5]
+const inverso = [5, 4, 3, 2, 1]
+function iSort () {
+    let counter = 0
+    for (let i = 1; i < ordenado.length; i++) {
+        let current = ordenado[i]
         let j = i - 1
-        while (j >= 0 && arr[j] > current ) {
-            arr[j + 1] = arr[j]
-            j--
-        }
         
-        arr[j + 1] = current
-    }
-    console.log(arr)
+        while (j >= 0 ) {
+            counter++
+            if (ordenado[j] > current) {
+                ordenado[j + 1] = ordenado[j]
+            j--
+            } else{
+                break
+            }
+            
+        }
 
+        ordenado[j + 1] = current
+    }
+
+    console.log(counter)
 }
 
-iSort(vector2)
+
+iSort(vector)
+
+
+
+function selection (vector) {
+    for (let i = 0; i < vector.length - 1; i++) {
+        let minIndex = i
+        for (let j = i + 1; j < vector.length; j++) {
+            if (vector[j] < vector[i]) {
+                minIndex = j
+            }
+        }
+
+        if (minIndex !== i) {
+            let temp = vector[i]
+            vector[i] = vector[minIndex]
+            vector[minIndex] = temp
+        }
+    }
+}
+
 
