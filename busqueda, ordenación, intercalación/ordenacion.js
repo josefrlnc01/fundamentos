@@ -219,38 +219,7 @@ function quickSort (numbers, left = 0, right = numbers.length - 1) {
 
 const arr = [23,1,22,7]
 
-function linearSearch (num) {
-    for (let i = 0; i < arr.length; i++) {
-        if (num === arr[i]) {
-            return i
-        }
-    }
 
-    return -1
-}
-
-
-
-
-function binarySearch (arr, num) {
-    let left = 0
-    let right = arr.length - 1
-    let mid = Math.floor((left + right) / 2)
-
-    while (left <= right) {
-        if (arr[mid] > num) {
-            right = mid - 1
-        } else if (arr[mid] < num) {
-            left = mid + 1
-        } else {
-            return mid
-        }
-
-        mid = Math.floor((left + right) / 2)
-    }
-
-    return -1
-}
 
 
 const vector = [98,45,23,21,2,35,67,34]
